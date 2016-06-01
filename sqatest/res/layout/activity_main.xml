@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:id="@+id/mainLayout"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/hideText"
+        android:visibility="invisible"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:text="SQA TEST" />
+    
+    <EditText
+        android:id="@+id/ssidEditText"
+        android:inputType="text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Please Input SSID"
+        />    
+        
+    <Spinner
+        android:id="@+id/securitySpinner"
+        android:layout_toRightOf="@id/ssidEditText"
+        android:layout_alignTop="@id/ssidEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <Spinner
+        android:id="@+id/authSpinner"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/securitySpinner"
+        android:layout_alignTop="@id/securitySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <Spinner
+        android:id="@+id/inputSpinner"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/authSpinner"
+        android:layout_alignTop="@id/authSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <Spinner
+        android:id="@+id/keyLengthSpinner"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/inputSpinner"
+        android:layout_alignTop="@id/inputSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <Spinner
+        android:id="@+id/defaultKeySpinner"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/keyLengthSpinner"
+        android:layout_alignTop="@id/keyLengthSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <Spinner
+        android:id="@+id/encryptionSpinner"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/defaultKeySpinner"
+        android:layout_alignTop="@id/defaultKeySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <EditText
+        android:id="@+id/keyEditText"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/encryptionSpinner"
+        android:layout_alignTop="@id/encryptionSpinner"
+        android:inputType="textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Please Input Password"
+        />
+    
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/keyEditText"
+        android:layout_alignTop="@id/keyEditText"
+        android:inputType="text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Please Input Username"
+        />
+    
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:visibility="invisible"
+        android:layout_toRightOf="@id/usernameEditText"
+        android:layout_alignTop="@id/usernameEditText"
+        android:inputType="textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Please Input Password"
+        />
+    
+    <TextView
+        android:id="@+id/webBrowserText"
+        android:layout_below="@id/securitySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SQA TEST" />
+    
+	<TextView
+        android:id="@+id/youtubeText"
+        android:layout_below="@id/webBrowserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SQA TEST" />
+    
+    <Button 
+        android:id="@+id/connectionButton"
+        android:layout_below="@id/youtubeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connect"
+        />
+    
+    <Button 
+        android:id="@+id/webBrowserButton"
+        android:layout_toRightOf="@id/connectionButton"
+        android:layout_alignTop="@id/connectionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Web Browser"
+        />
+    
+    <Button 
+        android:id="@+id/youtubeButton"
+        android:layout_toRightOf="@id/webBrowserButton"
+        android:layout_alignTop="@id/webBrowserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Youtube"
+        />
+
+</RelativeLayout>
