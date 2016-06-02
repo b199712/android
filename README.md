@@ -15,5 +15,5 @@ This is for automated testing.<br>
 
 
 ##listview
-It can detect about all access points and displays information.
+It can detect about all access points and displays information.<br>
 The informatino include SSID, security, channel and rssi.
