@@ -88,7 +88,7 @@ public class MainActivity extends ListActivity {
 		String channel = ((TextView) v.findViewById(R.id.channel)).getText().toString();
 
 		System.out.println(checkChannel(Integer.parseInt(channel)));
-		ssidText.setText(security);
+		ssidText.setText("SSID : "+theSSID+" Security : "+security+" Channel : "+channel);
 		
 	}
 	
