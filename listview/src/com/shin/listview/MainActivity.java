@@ -63,8 +63,8 @@ public class MainActivity extends ListActivity {
 			for(ScanResult result : wifiScanResult ){
 				HashMap<String,String> info = new HashMap<String,String>();
 				info.put("ssid", result.SSID);
-				info.put("seucrity", result.capabilities);
-				info.put("channel", result.frequency+"");
+				info.put("seucrity", checkSecurity(result.capabilities));
+				info.put("channel", "Ch"+checkChannel(result.frequency));
 				info.put("rssi", result.level+"");
             	list.add(info);
 			}
@@ -84,7 +84,83 @@ public class MainActivity extends ListActivity {
 		
 		//get list ssid value
 		String theSSID = ((TextView) v.findViewById(R.id.ssid)).getText().toString();
-		ssidText.setText(theSSID);
+		String security = ((TextView) v.findViewById(R.id.security)).getText().toString();
+		String channel = ((TextView) v.findViewById(R.id.channel)).getText().toString();
+
+		System.out.println(checkChannel(Integer.parseInt(channel)));
+		ssidText.setText(security);
+		
+	}
+	
+	protected String checkSecurity(String security){
+		
+		String result="";
+		
+		if(security.equals("[ESS]")){
+			result="none";
+		}else if(security.contains("WEP")){
+			result="WEP";
+		}else{
+			if(security.contains("WPA-")){
+				result="WPA";
+			}
+			
+			if(security.contains("WPA2-")){
+				if(!"".equals(result)){
+					result+="/";
+				}
+				result+="WPA2";
+			}
+			
+			if(security.contains("PSK")){
+				result+=" - PSK";
+			}
+			
+			if(security.contains("EAP")){
+				result+=" - Enterprise";
+			}
+			
+			if(security.contains("CCMP")){
+				result+=" AES";
+			}
+			
+			if(security.contains("TKIP")){
+				if(result.contains("AES")){
+					result+="+";
+				}
+				result+="TKIP";
+			}
+		}
+		
+		return result;
+	}
+	
+	protected int checkChannel(int channel){
+		
+		int result=0;
+		int band1Max=5240, band2Max=5320, band3Max=5700, band4Max=5825;
+		int startCh=0, temp=0;
+		
+		if(channel<5000){
+			result=(channel-2412)/5+1;
+		}else{
+			if(channel<band1Max){
+				startCh=48;
+				temp=band1Max-channel;
+			}else if(channel<band2Max){
+				startCh=64;
+				temp=band2Max-channel;
+			}else if(channel<band3Max){
+				startCh=140;
+				temp=band3Max-channel;
+			}else if(channel<band4Max){
+				startCh=165;
+				temp=band4Max-channel;
+			}
+			result=startCh-(4*(temp/20));
+		}
+		
+		return result;
 		
 	}
 }
